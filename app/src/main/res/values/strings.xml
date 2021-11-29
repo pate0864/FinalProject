@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">FinalProject</string>
+    <string name="project_pexels">Pexels</string>
+    <string name="desc_pexels">Search Images from Pexels using API</string>
+    <string name="project_owlbot_dictionary">Owlbot Dictionary</string>
+    <string name="desc_owlbot_dictionary">Search word meanings from the dictionary</string>
+    <string name="project_covid19_tracker">Covid19 Information Tracker</string>
+    <string name="desc_covid19_tracker">Get Information of Covid19 Cases</string>
+    <string name="project_carbon_dioxide">Carbon Dioxide Interface</string>
+    <string name="desc_carbon_dioxide">Get Carbon DIoxide Emission details</string>
+</resources>
