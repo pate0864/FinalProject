@@ -1,11 +1,37 @@
 <resources>
     <string name="app_name">FinalProject</string>
+
+    <!--    Project Names and Descriptions-->
     <string name="project_pexels">Pexels</string>
     <string name="desc_pexels">Search Images from Pexels using API</string>
+
     <string name="project_owlbot_dictionary">Owlbot Dictionary</string>
     <string name="desc_owlbot_dictionary">Search word meanings from the dictionary</string>
+
     <string name="project_covid19_tracker">Covid19 Information Tracker</string>
     <string name="desc_covid19_tracker">Get Information of Covid19 Cases</string>
+
     <string name="project_carbon_dioxide">Carbon Dioxide Interface</string>
     <string name="desc_carbon_dioxide">Get Carbon DIoxide Emission details</string>
+
+    <!--    Carbon Dioxide Interface Project Strings-->
+    <string name="author_carbon_dioxide">Kavan patel</string>
+    <string name="version_carbon_dioxide">Version : 1</string>
+    <string name="carbon_dioxide_search">Carbon Dioxide Estimate</string>
+    <string name="carbon_dioxide_saved">Carbon Dioxide Saved Emissions</string>
+
+    <string name="carbon_dioxide_help">1. Enter Vehicle Distance and click Search</string>
+    <string name="carbon_dioxide_okay">Ok!</string>
+
+    <string name="drawer_open">Open drawer</string>
+    <string name="drawer_close">Close drawer</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="help">Help</string>
+    <string name="carbon_dioxide_search_hint">Enter Distance (in KM)</string>
+    <string name="carbon_dioxide_btn_search">Search Makers</string>
+    <string name="carbon_dioxide_text_select_maker">Select Maker:</string>
+    <string name="carbon_dioxide_text_select_model">Select Model:</string>
+    <string name="carbon_dioxide_btn_calculate">Calculate Emission</string>
+
 </resources>
