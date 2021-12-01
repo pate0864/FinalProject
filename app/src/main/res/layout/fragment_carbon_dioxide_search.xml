@@ -11,22 +11,41 @@
         android:orientation="vertical"
         android:padding="10dp">
 
-        <TextView
-            android:id="@+id/textView"
+        <EditText
+            android:id="@+id/etDistance"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
             android:text="@string/carbon_dioxide_search_hint"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:inputType="numberDecimal"/>
 
-        <Button
-            android:id="@+id/btnSearchCarbonDioxide"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/carbon_dioxide_btn_search" />
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnSearchCarbonDioxide"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/carbon_dioxide_btn_search"
+                android:layout_weight="1"
+                android:layout_margin="5dp"/>
+
+            <Button
+                android:id="@+id/btnResetSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/carbon_dioxide_btn_reset_search"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+
 
         <LinearLayout
             android:id="@+id/layoutSelectMakers"
@@ -40,8 +59,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/carbon_dioxide_text_select_maker"/>
 
-            <ListView
-                android:id="@+id/listViewMakers"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewMakers"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
@@ -59,8 +78,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/carbon_dioxide_text_select_model"/>
 
-            <ListView
-                android:id="@+id/listViewModels"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewModels"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 

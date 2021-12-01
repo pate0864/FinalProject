@@ -23,6 +23,10 @@
     <string name="carbon_dioxide_help">1. Enter Vehicle Distance and click Search</string>
     <string name="carbon_dioxide_okay">Ok!</string>
 
+    <string name="apiKeyCarbonEmission">7wxKx0AAeNYLIkhPWXlAg</string>
+    <string name="apiMakersUrl">https://www.carboninterface.com/api/v1/vehicle_makes</string>
+    <string name="apiEstimatesUrl">https://www.carboninterface.com/api/v1/estimates</string>
+
     <string name="drawer_open">Open drawer</string>
     <string name="drawer_close">Close drawer</string>
     <!-- TODO: Remove or change this placeholder text -->
@@ -33,5 +37,7 @@
     <string name="carbon_dioxide_text_select_maker">Select Maker:</string>
     <string name="carbon_dioxide_text_select_model">Select Model:</string>
     <string name="carbon_dioxide_btn_calculate">Calculate Emission</string>
+    <string name="carbon_dioxide_btn_reset_search">Reset Search</string>
+    <string name="carbon_dioxide_btn_save">Save</string>
 
 </resources>
