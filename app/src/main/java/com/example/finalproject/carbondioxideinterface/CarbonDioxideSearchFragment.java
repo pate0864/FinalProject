@@ -1,5 +1,8 @@
 package com.example.finalproject.carbondioxideinterface;
 
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
@@ -16,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.finalproject.R;
@@ -38,13 +42,15 @@ import javax.net.ssl.HttpsURLConnection;
  */
 public class CarbonDioxideSearchFragment extends Fragment {
 
-    Button btnSearchMaker,btnResetSearch, btnCalculateEmission;
+    Button btnSearchMaker,btnResetSearch;
     LinearLayout layoutSelectMaker, layoutSelectModel;
     EditText etDistance;
     RecyclerView rvSelectModel, rvSelectMaker;
 
     MakersRecyclerAdapter makersRecyclerAdapter;
     ModelsRecyclerAdapter modelsRecyclerAdapter;
+
+    SharedPreferences sharedPreferences;
 
     public CarbonDioxideSearchFragment() {
         // Required empty public constructor
@@ -62,12 +68,15 @@ public class CarbonDioxideSearchFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_carbon_dioxide_search, container, false);
         btnSearchMaker = view.findViewById(R.id.btnSearchCarbonDioxide);
         btnResetSearch = view.findViewById(R.id.btnResetSearch);
-        btnCalculateEmission = view.findViewById(R.id.btnCalculateCarbonDioxide);
         layoutSelectMaker = view.findViewById(R.id.layoutSelectMakers);
         layoutSelectModel = view.findViewById(R.id.layoutSelectModel);
         rvSelectMaker = view.findViewById(R.id.recyclerViewMakers);
         rvSelectModel = view.findViewById(R.id.recyclerViewModels);
         etDistance = view.findViewById(R.id.etDistance);
+
+        sharedPreferences = getActivity().getSharedPreferences("carbonDioxideEmission", Context.MODE_PRIVATE);
+        etDistance.setText(sharedPreferences.getString("distance",""));
+
         return view;
     }
 
@@ -78,50 +87,10 @@ public class CarbonDioxideSearchFragment extends Fragment {
         btnSearchMaker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                try {
-                    JSONArray array = new SearchMakers().execute().get();
-                    layoutSelectMaker.setVisibility(View.VISIBLE);
-                    layoutSelectModel.setVisibility(View.GONE);
-                    rvSelectMaker.setLayoutManager(new LinearLayoutManager(getContext()));
-                    makersRecyclerAdapter = new MakersRecyclerAdapter(array, new MakersRecyclerAdapter.OnMakerSelectedListener() {
-                        @Override
-                        public void onMakerSelected(String id) {
-                            try {
-                                JSONArray models  = new SearchModels(id).execute().get();
-                                layoutSelectMaker.setVisibility(View.GONE);
-                                layoutSelectModel.setVisibility(View.VISIBLE);
-                                rvSelectModel.setLayoutManager(new LinearLayoutManager(getContext()));
-                                modelsRecyclerAdapter = new ModelsRecyclerAdapter(models, new ModelsRecyclerAdapter.OnMakerSelectedListener() {
-                                    @Override
-                                    public void onMakerSelected(String id) {
-                                        try {
-                                            CarbonEmissionEstimate estimate = new GenerateEstimate(id, Double.parseDouble(etDistance.getText().toString())).execute().get();
-                                            getActivity().getSupportFragmentManager().beginTransaction()
-                                                    .replace(R.id.frameLayout, CarbonDioxideEmissionFragment.newInstance(estimate))
-                                                    .addToBackStack("EmissionDetails")
-                                                    .commit();
-                                        } catch (ExecutionException e) {
-                                            e.printStackTrace();
-                                        } catch (InterruptedException e) {
-                                            e.printStackTrace();
-                                        }
-
-                                    }
-                                });
-                                rvSelectModel.setAdapter(modelsRecyclerAdapter);
-                            } catch (ExecutionException e) {
-                                e.printStackTrace();
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    });
-                    rvSelectMaker.setAdapter(makersRecyclerAdapter);
-                } catch (ExecutionException e) {
-                    e.printStackTrace();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                if(!"".equals(etDistance.getText().toString()))
+                    new SearchMakers().execute();
+                else
+                    Toast.makeText(getContext() , "Please Enter a Distance", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -137,6 +106,18 @@ public class CarbonDioxideSearchFragment extends Fragment {
     }
 
     class SearchMakers extends AsyncTask<Void, Void, JSONArray>{
+
+        ProgressDialog dialog;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            dialog = new ProgressDialog(getContext());
+            dialog.setCancelable(false);
+            dialog.setMessage("Searching Makers...");
+            dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            dialog.show();
+        }
 
         @Override
         protected JSONArray doInBackground(Void... voids) {
@@ -156,6 +137,26 @@ public class CarbonDioxideSearchFragment extends Fragment {
                 e.printStackTrace();
                 return null;
             }
+        }
+
+        @Override
+        protected void onPostExecute(JSONArray jsonArray) {
+            super.onPostExecute(jsonArray);
+            dialog.cancel();
+            layoutSelectMaker.setVisibility(View.VISIBLE);
+            layoutSelectModel.setVisibility(View.GONE);
+            rvSelectMaker.setLayoutManager(new LinearLayoutManager(getContext()));
+            makersRecyclerAdapter = new MakersRecyclerAdapter(jsonArray, new MakersRecyclerAdapter.OnMakerSelectedListener() {
+                @Override
+                public void onMakerSelected(String id) {
+
+                        new SearchModels(id).execute();
+
+                }
+            });
+            rvSelectMaker.setAdapter(makersRecyclerAdapter);
+
+            sharedPreferences.edit().putString("distance", etDistance.getText().toString()).apply();
         }
 
         /**
@@ -187,6 +188,18 @@ public class CarbonDioxideSearchFragment extends Fragment {
             this.vehicleMakerId = vehicleMakerId;
         }
 
+        ProgressDialog dialog;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            dialog = new ProgressDialog(getContext());
+            dialog.setCancelable(false);
+            dialog.setMessage("Searching Models...");
+            dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            dialog.show();
+        }
+
         @Override
         protected JSONArray doInBackground(Void... voids) {
             try {
@@ -205,6 +218,22 @@ public class CarbonDioxideSearchFragment extends Fragment {
                 e.printStackTrace();
                 return null;
             }
+        }
+
+        @Override
+        protected void onPostExecute(JSONArray jsonArray) {
+            super.onPostExecute(jsonArray);
+            dialog.cancel();
+            layoutSelectMaker.setVisibility(View.GONE);
+            layoutSelectModel.setVisibility(View.VISIBLE);
+            rvSelectModel.setLayoutManager(new LinearLayoutManager(getContext()));
+            modelsRecyclerAdapter = new ModelsRecyclerAdapter(jsonArray, new ModelsRecyclerAdapter.OnMakerSelectedListener() {
+                @Override
+                public void onMakerSelected(String id) {
+                        new GenerateEstimate(id, Double.parseDouble(etDistance.getText().toString())).execute();
+                }
+            });
+            rvSelectModel.setAdapter(modelsRecyclerAdapter);
         }
 
         /**
@@ -236,6 +265,18 @@ public class CarbonDioxideSearchFragment extends Fragment {
         public GenerateEstimate(String modelId, double distance) {
             this.modelId = modelId;
             this.distance = distance;
+        }
+
+        ProgressDialog dialog;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            dialog = new ProgressDialog(getContext());
+            dialog.setCancelable(false);
+            dialog.setMessage("Generating Estimates...");
+            dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            dialog.show();
         }
 
         @Override
@@ -278,6 +319,16 @@ public class CarbonDioxideSearchFragment extends Fragment {
                 e.printStackTrace();
                 return null;
             }
+        }
+
+        @Override
+        protected void onPostExecute(CarbonEmissionEstimate estimate) {
+            super.onPostExecute(estimate);
+            dialog.cancel();
+            getActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.frameLayout, CarbonDioxideEmissionFragment.newInstance(estimate))
+                    .addToBackStack("EmissionDetails")
+                    .commit();
         }
 
         /**

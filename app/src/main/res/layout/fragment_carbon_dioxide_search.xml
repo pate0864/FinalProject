@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
-            android:text="@string/carbon_dioxide_search_hint"
+            android:hint="@string/carbon_dioxide_search_hint"
             android:textSize="18sp"
             android:textStyle="bold"
             android:inputType="numberDecimal"/>
@@ -52,17 +52,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:visibility="gone">
+            android:visibility="gone"
+            android:layout_margin="10dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="16sp"
                 android:text="@string/carbon_dioxide_text_select_maker"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewMakers"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"/>
 
         </LinearLayout>
 
@@ -71,23 +75,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:visibility="gone">
+            android:visibility="gone"
+            android:layout_margin="10dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="16sp"
                 android:text="@string/carbon_dioxide_text_select_model"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewModels"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-            <Button
-                android:id="@+id/btnCalculateCarbonDioxide"
-                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/carbon_dioxide_btn_calculate" />
+                android:layout_marginTop="10dp"/>
 
         </LinearLayout>
 

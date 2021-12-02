@@ -221,11 +221,19 @@
                     android:layout_margin="5dp"/>
 
                 <Button
+                    android:id="@+id/btnDelete"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/carbon_dioxide_btn_delete"
+                    android:layout_weight="1"
+                    android:layout_margin="5dp"/>
+
+                <Button
                     android:id="@+id/btnBack"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:text="@string/carbon_dioxide_btn_reset_search"
+                    android:text="@string/carbon_dioxide_btn_back"
                     android:layout_weight="1"/>
 
             </LinearLayout>
