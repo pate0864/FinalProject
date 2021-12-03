@@ -1,6 +1,8 @@
 package com.example.finalproject.owlbotdictionary;
 
-public class Definition {
+import java.io.Serializable;
+
+public class Definition implements Serializable {
     String type;
     String definition;
     String example;

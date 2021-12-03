@@ -1,11 +1,14 @@
 package com.example.finalproject.owlbotdictionary;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
@@ -18,6 +21,8 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.finalproject.R;
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -35,6 +40,8 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class OwlbotDictionarySearchFragment extends Fragment {
+
+    SharedPreferences sharedPreferences;
 
     EditText etSearchWord;
     RecyclerView recyclerSearch;
@@ -66,10 +73,16 @@ public class OwlbotDictionarySearchFragment extends Fragment {
         btnSearch = view.findViewById(R.id.btnSearch);
         progressSearch = view.findViewById(R.id.progressSearch);
 
+        sharedPreferences = getActivity().getSharedPreferences("OwlbotDictionary", Context.MODE_PRIVATE);
+        etSearchWord.setText(sharedPreferences.getString("searchText",""));
+
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new SearchWord(etSearchWord.getText().toString()).execute();
+                if(!"".equals(etSearchWord.getText().toString()))
+                    new SearchWord(etSearchWord.getText().toString()).execute();
+                else
+                    Snackbar.make(view, getResources().getString(R.string.owlbot_enter_text_error), BaseTransientBottomBar.LENGTH_SHORT).show();
             }
         });
 
@@ -141,6 +154,17 @@ public class OwlbotDictionarySearchFragment extends Fragment {
             super.onPostExecute(word);
             Toast.makeText(getContext(), "Search Complete", Toast.LENGTH_SHORT).show();
             progressSearch.setVisibility(View.GONE);
+            recyclerSearch.setLayoutManager(new LinearLayoutManager(getContext()));
+            recyclerSearch.setAdapter(new DefinitionListAdapter(word.getDefinitions(), new OnDefinitionClickListener() {
+                @Override
+                public void OnClick(int position) {
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,
+                            OwlbotDictionaryViewDefinitionFragment.newInstance(word, word.getDefinitions().get(position)))
+                            .addToBackStack("DetailsFragment").commit();
+                }
+            }));
+
+            sharedPreferences.edit().putString("searchText",searchWord).apply();
         }
     }
 

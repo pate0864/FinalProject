@@ -1,12 +1,22 @@
 package com.example.finalproject.owlbotdictionary;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Word {
+public class Word implements Serializable {
 
+    String id;
     String word;
     String pronunciation;
     List<Definition> definitions;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getWord() {
         return word;
