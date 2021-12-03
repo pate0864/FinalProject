@@ -8,4 +8,18 @@
     <string name="desc_covid19_tracker">Get Information of Covid19 Cases</string>
     <string name="project_carbon_dioxide">Carbon Dioxide Interface</string>
     <string name="desc_carbon_dioxide">Get Carbon DIoxide Emission details</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="owlbot_search_hint">Enter word here</string>
+    <string name="owlbot_search">Search</string>
+    <string name="owlbot_side_nav_search">Owlbot Dictionary Search</string>
+    <string name="owlbot_side_nav_saved">Owlbot Dictionary Saved Definitions</string>
+    <string name="help">Help</string>
+    <string name="drawer_open">Open Drawer</string>
+    <string name="drawer_close">Close Drawer</string>
+    <string name="owlbot_okay">Got It!</string>
+    <string name="owlbot_help">How to use Owlbot Dictionary</string>
+    <string name="activity_owlbot_dictionary">Activity: Owlbot Dictionary</string>
+    <string name="owlbot_dictionary_version">Version: 1</string>
+    <string name="author_owlbot_dictionary">Author: Sanket Parmar</string>
 </resources>
