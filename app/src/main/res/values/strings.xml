@@ -18,7 +18,7 @@
     <string name="drawer_open">Open Drawer</string>
     <string name="drawer_close">Close Drawer</string>
     <string name="owlbot_okay">Got It!</string>
-    <string name="owlbot_help">How to use Owlbot Dictionary</string>
+    <string name="owlbot_help">1. Enter a word.\n2.Click Search Button\n3. You will see a list of definitions. Click on then for more details or to save them.</string>
     <string name="activity_owlbot_dictionary">Activity: Owlbot Dictionary</string>
     <string name="owlbot_dictionary_version">Version: 1</string>
     <string name="author_owlbot_dictionary">Author: Sanket Parmar</string>
