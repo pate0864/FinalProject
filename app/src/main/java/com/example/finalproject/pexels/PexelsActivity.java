@@ -9,12 +9,17 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.finalproject.R;
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.Locale;
 
 public class PexelsActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -86,6 +91,21 @@ public class PexelsActivity extends AppCompatActivity implements NavigationView.
                 builder.setMessage(getResources().getString(R.string.pexels_help_text));
                 builder.show();
                 return true;
+            case R.id.pexelsSwitchLanguage:
+                Locale currentLanguage = getResources().getConfiguration().locale;
+                Locale newLocale;
+                if (currentLanguage.getLanguage().equals(new Locale("hi").getLanguage())) {
+                    newLocale = new Locale("en");
+                } else {
+                    newLocale = new Locale("hi");
+                }
+
+                DisplayMetrics dm = getResources().getDisplayMetrics();
+                Configuration conf = getResources().getConfiguration();
+                conf.locale = newLocale;
+                getResources().updateConfiguration(conf, dm);
+                startActivity(new Intent(this, PexelsActivity.class));
+                finish();
             default:
                 return super.onOptionsItemSelected(item);
         }

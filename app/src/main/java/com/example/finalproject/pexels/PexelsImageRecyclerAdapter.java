@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.finalproject.R;
 
 import java.util.List;
+import java.util.concurrent.Executors;
 
 public class PexelsImageRecyclerAdapter extends RecyclerView.Adapter<PexelsImageRecyclerAdapter.MyView> {
 
@@ -38,8 +39,16 @@ public class PexelsImageRecyclerAdapter extends RecyclerView.Adapter<PexelsImage
     @Override
     public void onBindViewHolder(@NonNull MyView holder, int position) {
         holder.textViewPhotographer.setText(images.get(position).getPhotographer());
-        if("".equals(images.get(position).getSavePath()) || images.get(position).getSavePath() == null)
-            new FetchImage(images.get(position).getMediumUrl(), holder.imageView, holder.progressImage).execute();
+        if("".equals(images.get(position).getSavePath()) || images.get(position).getSavePath() == null) {
+            holder.progressImage.setVisibility(View.VISIBLE);
+            Executors.newSingleThreadExecutor()
+                    .execute(new FetchImage(images.get(position).getMediumUrl(), image -> {
+                        ((PexelsActivity) context).runOnUiThread(()->{
+                            holder.imageView.setImageBitmap(image);
+                            holder.progressImage.setVisibility(View.GONE);
+                        });
+                    }));
+        }
         else{
             holder.progressImage.setVisibility(View.GONE);
             holder.imageView.setImageBitmap(ImageUtils.getImageFromGallery(images.get(position).getSavePath(), context));

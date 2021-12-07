@@ -10,46 +10,29 @@ import android.widget.ProgressBar;
 import java.io.IOException;
 import java.net.URL;
 
-public class FetchImage extends AsyncTask<Void, Void, Bitmap> {
+public class FetchImage implements Runnable {
 
     String imageURL;
-    ImageView imageView;
-    ProgressBar progressBar;
+    OnImageFetchCompleteListener onImageFetchCompleteListener;
 
-    public FetchImage(String imageURL, ImageView imageView, ProgressBar progressBar) {
+    public interface OnImageFetchCompleteListener{
+        void onComplete(Bitmap bitmap);
+    }
+
+    public FetchImage(String imageURL,OnImageFetchCompleteListener onImageFetchCompleteListener) {
         this.imageURL = imageURL;
-        this.imageView = imageView;
-        this.progressBar = progressBar;
+        this.onImageFetchCompleteListener = onImageFetchCompleteListener;
     }
 
     @Override
-    protected void onPreExecute() {
-        super.onPreExecute();
-        if(progressBar !=null)
-            progressBar.setVisibility(View.VISIBLE);
-    }
-
-    @Override
-    protected Bitmap doInBackground(Void... voids) {
-        URL url = null;
+    public void run() {
         try {
-            url = new URL(imageURL);
-            return BitmapFactory.decodeStream(url.openConnection().getInputStream());
+            URL url = new URL(imageURL);
+            Bitmap bitmap = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+            if(onImageFetchCompleteListener!=null)
+                onImageFetchCompleteListener.onComplete(bitmap);
         } catch (IOException e) {
             e.printStackTrace();
-        }
-        return null;
-    }
-
-    @Override
-    protected void onPostExecute(Bitmap bitmap) {
-        super.onPostExecute(bitmap);
-        if (bitmap != null) {
-
-            if(progressBar !=null)
-                progressBar.setVisibility(View.GONE);
-            if(imageView!=null)
-                imageView.setImageBitmap(bitmap);
         }
     }
 }

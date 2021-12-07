@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.example.finalproject.R;
 
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Executors;
 
 public class PexelsImageViewActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -75,13 +76,14 @@ public class PexelsImageViewActivity extends AppCompatActivity implements View.O
             imageView.setImageBitmap(bitmap);
         }
         else {
-            try {
-                bitmap = new FetchImage(pexelImage.getOriginalUrl(), imageView, progressImage).execute().get();
-            } catch (ExecutionException e) {
-                e.printStackTrace();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            progressImage.setVisibility(View.VISIBLE);
+            Executors.newSingleThreadExecutor().execute(new FetchImage(pexelImage.getOriginalUrl(), image->{
+                runOnUiThread(()->{
+                    bitmap = image;
+                    progressImage.setVisibility(View.GONE);
+                    imageView.setImageBitmap(bitmap);
+                });
+            }));
         }
 
         buttonOperation.setOnClickListener(this::onClick);
