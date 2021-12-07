@@ -9,6 +9,8 @@ import android.view.View;
 
 import com.example.finalproject.owlbotdictionary.OwlbotDictionaryActivity;
 
+import com.example.finalproject.pexels.PexelsActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -21,6 +23,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, OwlbotDictionaryActivity.class));
             }
+        });
+
+        findViewById(R.id.cardProjectPexels).setOnClickListener(v->{
+            startActivity(new Intent(this, PexelsActivity.class));
         });
 
     }

@@ -31,4 +31,27 @@
     <string name="owlbot_enter_text_error">Please enter Search Text First</string>
     <string name="owlbot_no_saved_definition">No saved Definitions Found</string>
     <string name="owlbot_search_new_definitions">Search new Definitions</string>
+
+
+    <string name="api_key_pexels">563492ad6f917000010000014fb852f35ab04474b564345ccba62a17</string>
+    <string name="pexels_search">Pexels Search Image</string>
+    <string name="pexels_saved">Pexels Saved Image</string>
+    <string name="author_pexels">Karm Patel</string>
+    <string name="pexels_version">Version: 1</string>
+    <string name="drawer_open">Open Drawer</string>
+    <string name="drawer_close">Close Drawer</string>
+    <string name="help">Help</string>
+    <string name="pexels_switch_language">Switch Language</string>
+    <string name="pexels_ok">Ok</string>
+    <string name="pexels_help_text">1. Enter Search keyword. 2. Click search to fetch Results. 3. You can save results by clicking and viewing detials.</string>
+    <string name="pexels_search_hint">Enter Search Keyword</string>
+    <string name="pexels_no_keword">Please enter search keyword</string>
+    <string name="pexels_image_details">Image Details</string>
+    <string name="pexels_photographer">Photographer</string>
+    <string name="pexels_width">Image Width</string>
+    <string name="pexels_height">Image Height</string>
+    <string name="pexels_view_original_image">View Original Image</string>
+    <string name="pexels_view_photographer">View Photographer</string>
+    <string name="pexels_save">Save</string>
+    <string name="pexels_delete">Delete</string>
 </resources>

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.finalproject">
-    <uses-permission android:name="android.permission.INTERNET"/>
+    package="com.example.finalproject" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,9 +14,16 @@
         <activity
             android:name=".owlbotdictionary.OwlbotDictionaryActivity"
             android:exported="false" />
+        android:theme="@style/Theme.FinalProject" >
+        <activity
+            android:name=".pexels.PexelsImageViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pexels.PexelsActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

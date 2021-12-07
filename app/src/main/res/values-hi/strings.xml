@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">FinalProject</string>
+    <string name="project_pexels">पेक्सल्स</string>
+    <string name="desc_pexels">API का उपयोग करके Pexels से छवियां खोजें</string>
+    <string name="project_owlbot_dictionary">Owlbot शब्दकोश</string>
+    <string name="desc_owlbot_dictionary">शब्दकोश से शब्द के अर्थ खोजें</string>
+    <string name="project_covid19_tracker">Covid19 सूचना ट्रैकर</string>
+    <string name="desc_covid19_tracker">Covid19 मामलों की जानकारी प्राप्त करें</string>
+    <string name="project_carbon_dioxide">कार्बन डाइऑक्साइड इंटरफ़ेस</string>
+    <string name="desc_carbon_dioxide">कार्बन डाइऑक्साइड उत्सर्जन विवरण प्राप्त करें</string>
+
+
+    <string name="api_key_pexels">563492ad6f917000010000014fb852f35ab04474b564345ccba62a17</string>
+    <string name="pexels_search">पिक्सल सर्च इमेज</string>
+    <string name="pexels_saved">Pexels सहेजी गई छवि</string>
+    <string name="author_pexels">कर्म पटेल</string>
+    <string name="pexels_version">संस्करण 1</string>
+    <string name="drawer_open">दराज खोलें</string>
+    <string name="drawer_close">दराज बंद करें</string>
+    <string name="help">मदद</string>
+    <string name="pexels_switch_language">भाषा बदलें</string>
+    <string name="pexels_ok">ठीक</string>
+    <string name="pexels_help_text">1. खोज कीवर्ड दर्ज करें। 2. परिणाम लाने के लिए खोज पर क्लिक करें। 3. आप डिटेल्स पर क्लिक करके और देख कर रिजल्ट सेव कर सकते हैं।</string>
+    <string name="pexels_search_hint">खोज कीवर्ड दर्ज करें</string>
+    <string name="pexels_no_keword">कृपया खोज कीवर्ड दर्ज करें</string>
+    <string name="pexels_image_details">छवि विवरण</string>
+    <string name="pexels_photographer">फोटोग्राफर</string>
+    <string name="pexels_width">इमेज की चौड़ाई</string>
+    <string name="pexels_height">चित्र की ऊंचाई</string>
+    <string name="pexels_view_original_image">मूल छवि देखें</string>
+    <string name="pexels_view_photographer">फोटोग्राफर देखें</string>
+    <string name="pexels_save">सहेजें</string>
+    <string name="pexels_delete">हटाएं</string>
+</resources>
