@@ -76,30 +76,6 @@
     <string name="covid_change_language">भाषा बदलें</string>
 
     <!--    Carbon Dioxide Interface Project Strings-->
-    <string name="author_carbon_dioxide">Kavan patel</string>
-    <string name="version_carbon_dioxide">Version : 1</string>
-    <string name="carbon_dioxide_search">Carbon Dioxide Estimate</string>
-    <string name="carbon_dioxide_saved">Carbon Dioxide Saved Emissions</string>
-
-    <string name="carbon_dioxide_help">1. Enter Vehicle Distance and click Search Maker\n
-    2. From the provided list click on the maker\n
-    3. From the provided model list click on the model\n
-    4. You will receive the Carbon Dioxide Emission Estimate on your screen</string>
-    <string name="carbon_dioxide_okay">Ok!</string>
-
-    <string name="carbon_dioxide_search_hint">Enter Distance (in KM)</string>
-    <string name="carbon_dioxide_btn_search">Search Makers</string>
-    <string name="carbon_dioxide_text_select_maker">Select Maker:</string>
-    <string name="carbon_dioxide_text_select_model">Select Model:</string>
-    <string name="carbon_dioxide_btn_calculate">Calculate Emission</string>
-    <string name="carbon_dioxide_btn_reset_search">Reset Search</string>
-    <string name="carbon_dioxide_btn_save">Save</string>
-    <string name="emission_saved_success">Carbon Emission Saved Successfully</string>
-    <string name="carbon_dioxide_btn_delete">Delete</string>
-    <string name="carbon_dioxide_btn_back">Back</string>
-    <string name="emission_delete_success">Carbon Emission Deleted Successfully</string>
-    <string name="carbon_dioxide_no_save_found">No Saved Carbon Emission Estimates Found</string>
-    <!--    Carbon Dioxide Interface Project Strings-->
     <string name="author_carbon_dioxide">कवन पटेल</string>
     <string name="version_carbon_dioxide">संस्करण 1</string>
     <string name="carbon_dioxide_search">कार्बन डाइऑक्साइड अनुमान</string>
@@ -110,8 +86,6 @@
     3. प्रदान की गई मॉडल सूची से मॉडल पर क्लिक करें\n
     4. आपको अपनी स्क्रीन पर कार्बन डाइऑक्साइड उत्सर्जन अनुमान प्राप्त होगा</string>
     <string name="carbon_dioxide_okay">ठीक!</string>
-
-    <string name="help">मदद</string>
     <string name="carbon_dioxide_search_hint">दूरी दर्ज करें (किमी में)</string>
     <string name="carbon_dioxide_btn_search">खोज निर्माता</string>
     <string name="carbon_dioxide_text_select_maker">निर्माता का चयन करें:</string>
@@ -129,14 +103,9 @@
     <string name="apiMakersUrl">https://www.carboninterface.com/api/v1/vehicle_makes</string>
     <string name="apiEstimatesUrl">https://www.carboninterface.com/api/v1/estimates</string>
 
-    <string name="drawer_open">दराज खोलें</string>
-    <string name="drawer_close">दराज बंद करें</string>
     <string name="vehicle_model">वाहन मॉडल:</string>
     <string name="vehicle_maker">वाहन निर्माता:</string>
     <string name="distance">दूरी:</string>
     <string name="carbon_dioxide_change_language">भाषा बदलें</string>
 
-    <string name="vehicle_model">Vehicle Model:</string>
-    <string name="vehicle_maker">Vehicle Maker:</string>
-    <string name="distance">Distance:</string>
 </resources>
