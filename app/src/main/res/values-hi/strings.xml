@@ -99,10 +99,42 @@
     <string name="carbon_dioxide_btn_back">Back</string>
     <string name="emission_delete_success">Carbon Emission Deleted Successfully</string>
     <string name="carbon_dioxide_no_save_found">No Saved Carbon Emission Estimates Found</string>
+    <!--    Carbon Dioxide Interface Project Strings-->
+    <string name="author_carbon_dioxide">कवन पटेल</string>
+    <string name="version_carbon_dioxide">संस्करण 1</string>
+    <string name="carbon_dioxide_search">कार्बन डाइऑक्साइड अनुमान</string>
+    <string name="carbon_dioxide_saved">कार्बन डाइऑक्साइड सहेजे गए उत्सर्जन</string>
+
+    <string name="carbon_dioxide_help">1. वाहन की दूरी दर्ज करें और खोज निर्माता पर क्लिक करें\n
+    2. प्रदान की गई सूची से निर्माता पर क्लिक करें\n
+    3. प्रदान की गई मॉडल सूची से मॉडल पर क्लिक करें\n
+    4. आपको अपनी स्क्रीन पर कार्बन डाइऑक्साइड उत्सर्जन अनुमान प्राप्त होगा</string>
+    <string name="carbon_dioxide_okay">ठीक!</string>
+
+    <string name="help">मदद</string>
+    <string name="carbon_dioxide_search_hint">दूरी दर्ज करें (किमी में)</string>
+    <string name="carbon_dioxide_btn_search">खोज निर्माता</string>
+    <string name="carbon_dioxide_text_select_maker">निर्माता का चयन करें:</string>
+    <string name="carbon_dioxide_text_select_model">मॉडल चुनें:</string>
+    <string name="carbon_dioxide_btn_calculate">उत्सर्जन की गणना करें</string>
+    <string name="carbon_dioxide_btn_reset_search">खोज रीसेट करें</string>
+    <string name="carbon_dioxide_btn_save">सहेजें</string>
+    <string name="emission_saved_success">कार्बन उत्सर्जन सफलतापूर्वक सहेजा गया</string>
+    <string name="carbon_dioxide_btn_delete">हटाएं</string>
+    <string name="carbon_dioxide_btn_back">वापस</string>
+    <string name="emission_delete_success">कार्बन उत्सर्जन सफलतापूर्वक हटाया गया</string>
+    <string name="carbon_dioxide_no_save_found">कोई सहेजा गया कार्बन उत्सर्जन अनुमान नहीं मिला</string>
 
     <string name="apiKeyCarbonEmission">7wxKx0AAeNYLIkhPWXlAg</string>
     <string name="apiMakersUrl">https://www.carboninterface.com/api/v1/vehicle_makes</string>
     <string name="apiEstimatesUrl">https://www.carboninterface.com/api/v1/estimates</string>
+
+    <string name="drawer_open">दराज खोलें</string>
+    <string name="drawer_close">दराज बंद करें</string>
+    <string name="vehicle_model">वाहन मॉडल:</string>
+    <string name="vehicle_maker">वाहन निर्माता:</string>
+    <string name="distance">दूरी:</string>
+    <string name="carbon_dioxide_change_language">भाषा बदलें</string>
 
     <string name="vehicle_model">Vehicle Model:</string>
     <string name="vehicle_maker">Vehicle Maker:</string>

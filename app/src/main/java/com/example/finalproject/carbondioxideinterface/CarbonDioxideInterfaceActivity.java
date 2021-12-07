@@ -9,12 +9,17 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.finalproject.R;
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.Locale;
 
 public class CarbonDioxideInterfaceActivity extends AppCompatActivity {
 
@@ -73,7 +78,7 @@ public class CarbonDioxideInterfaceActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
 
-            case R.id.menuHelp:
+            case R.id.menuHelp: {
                 //showing alert dialog for help
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle(getResources().getString(R.string.help));
@@ -86,6 +91,22 @@ public class CarbonDioxideInterfaceActivity extends AppCompatActivity {
                 builder.setMessage(getResources().getString(R.string.carbon_dioxide_help));
                 builder.show();
                 return true;
+            }
+            case R.id.changeLanguage:{
+                Locale newLocale;
+                if (getResources().getConfiguration().locale.getLanguage().equals(new Locale("hi").getLanguage())) {
+                    newLocale = new Locale("en");
+                } else {
+                    newLocale = new Locale("hi");
+                }
+
+                DisplayMetrics dm = getResources().getDisplayMetrics();
+                Configuration conf = getResources().getConfiguration();
+                conf.locale = newLocale;
+                getResources().updateConfiguration(conf, dm);
+                startActivity(new Intent(this, CarbonDioxideInterfaceActivity.class));
+                finish();
+            }
             default:
                 return super.onOptionsItemSelected(item);
         }
