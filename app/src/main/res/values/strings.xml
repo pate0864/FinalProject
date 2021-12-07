@@ -94,4 +94,29 @@
     <string name="vehicle_maker">Vehicle Maker:</string>
     <string name="distance">Distance:</string>
 
+
+
+    <string name="covid_side_nav_menu_search_info">Covid 19 Information Search</string>
+    <string name="covid_side_nav_menu_saved_info">Covid 19 Saved Information</string>
+    <string name="help">Help</string>
+    <string name="covid_help_text">1. Select a date\n2.Hit Search\n3. You will see the data date wise, to see more information and to save click on it.</string>
+    <string name="covid_loading">Loading Search Results...</string>
+    <string name="covid_select_date">Select Date</string>
+    <string name="covid_no_data">No Data Found!</string>
+    <string name="covid_fatalities">Fatalities</string>
+    <string name="covid_recoveries">Recoveries</string>
+    <string name="covid_cases">Cases</string>
+    <string name="drawer_open">Open Drawer</string>
+    <string name="drawer_close">Clode Drawer</string>
+    <string name="covid_okay">Ok</string>
+    <string name="author_covid">Bhishmang Patel</string>
+    <string name="version_covid">Version: 1</string>
+    <string name="covid_hospitalization">Hospitalization</string>
+    <string name="covid_vaccinations">Vaccinations</string>
+    <string name="covid_back">Back</string>
+    <string name="covid_save">Save</string>
+    <string name="covid_delete">Delete</string>
+    <string name="covid_delete_successful">Information Deleted Successful</string>
+    <string name="covid_save_successful">Information Saved Successful</string>
+    <string name="covid_change_language">Change Language</string>
 </resources>

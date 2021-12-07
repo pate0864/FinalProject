@@ -14,6 +14,8 @@ import android.view.View;
 
 import com.example.finalproject.carbondioxideinterface.CarbonDioxideInterfaceActivity;
 
+import com.example.finalproject.covidtracker.CovidInfoTrackerActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -39,5 +41,8 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(this, PexelsActivity.class));
         });
 
+        findViewById(R.id.cardProjectCovid19InfoTracker).setOnClickListener(v->{
+            startActivity(new Intent(this, CovidInfoTrackerActivity.class));
+        });
     }
 }

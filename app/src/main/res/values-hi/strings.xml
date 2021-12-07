@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">FinalProject</string>
     <string name="project_pexels">पेक्सल्स</string>
     <string name="desc_pexels">API का उपयोग करके Pexels से छवियां खोजें</string>
@@ -53,4 +54,27 @@
     <string name="owlbot_change_language">भाषा को हिंदी में बदलें</string>
     <string name="owlbot_change_language_to_English">भाषा को अंग्रेजी में बदलें</string>
 
+    <string name="covid_side_nav_menu_search_info">कोविड 19 सूचना खोज</string>
+    <string name="covid_side_nav_menu_saved_info">कोविड 19 सहेजी गई जानकारी</string>
+    <string name="help">मदद</string>
+    <string name="covid_help_text">1. एक तारीख चुनें\n2.खोज दबाएं\n3. अधिक जानकारी देखने के लिए और उस पर क्लिक करने के लिए आपको तारीख के अनुसार डेटा दिखाई देगा।</string>
+    <string name="covid_loading">खोज परिणाम लोड हो रहे हैं...</string>
+    <string name="covid_select_date">तारीख़ चुनें</string>
+    <string name="covid_no_data">डाटा प्राप्त नहीं हुआ!</string>
+    <string name="covid_fatalities">घातक परिणाम</string>
+    <string name="covid_recoveries">वसूलियां</string>
+    <string name="covid_cases">मामलों</string>
+    <string name="drawer_open">दराज खोलें</string>
+    <string name="drawer_close">क्लोड दराज</string>
+    <string name="covid_okay">ठीक</string>
+    <string name="author_covid">भीष्मंग पटेल</string>
+    <string name="version_covid">संस्करण 1</string>
+    <string name="covid_hospitalization">अस्पताल में भर्ती</string>
+    <string name="covid_vaccinations">टीकाकरण</string>
+    <string name="covid_back">वापस</string>
+    <string name="covid_save">सहेजें</string>
+    <string name="covid_delete">हटाएं</string>
+    <string name="covid_delete_successful">जानकारी हटाई गई सफल</string>
+    <string name="covid_save_successful">जानकारी सहेजी गई सफल</string>
+    <string name="covid_change_language">भाषा बदलें</string>
 </resources>

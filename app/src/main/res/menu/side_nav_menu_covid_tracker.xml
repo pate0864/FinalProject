@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/covidSearchInfo"
+            android:title="@string/covid_side_nav_menu_search_info" />
+        <item
+            android:id="@+id/covidSavedInfo"
+            android:title="@string/covid_side_nav_menu_saved_info" />
+    </group>
+</menu>
