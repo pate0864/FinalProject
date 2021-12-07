@@ -3,10 +3,12 @@ package com.example.finalproject.owlbotdictionary;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -33,8 +35,11 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Executors;
+import java.util.stream.Collectors;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -77,10 +82,69 @@ public class OwlbotDictionarySearchFragment extends Fragment {
         etSearchWord.setText(sharedPreferences.getString("searchText",""));
 
         btnSearch.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onClick(View view) {
-                if(!"".equals(etSearchWord.getText().toString()))
-                    new SearchWord(etSearchWord.getText().toString()).execute();
+                if(!"".equals(etSearchWord.getText().toString())) {
+                    String searchWord = etSearchWord.getText().toString();
+                    Executors.newSingleThreadExecutor()
+                            .execute(() -> {
+                                getActivity().runOnUiThread(()->
+                                        progressSearch.setVisibility(View.VISIBLE));
+                                try {
+                                    URL url = new URL("https://owlbot.info/api/v4/dictionary/"+searchWord);
+                                    URLConnection connection = url.openConnection();
+                                    connection.setRequestProperty("Authorization","Token de5338c14f0eef6ebc770fc35f85d34ea8f7b9be");
+
+                                    String s = (new BufferedReader(
+                                            new InputStreamReader(connection.getInputStream(), StandardCharsets.UTF_8)
+                                    )).lines()
+                                            .collect(Collectors.joining("\n"));
+
+                                    JSONObject response = new JSONObject(s);
+                                    if(!"".equals(response.optString("message","")))
+                                        Toast.makeText(getContext(), "Error Fetching Definitions", Toast.LENGTH_SHORT).show();
+                                    else {
+                                        Word word = new Word();
+                                        word.setWord(response.getString("word"));
+                                        word.setPronunciation(response.getString("pronunciation"));
+                                        JSONArray definitionJsonArray = response.getJSONArray("definitions");
+                                        List<Definition> definitions = new ArrayList<>();
+                                        for (int i = 0; i < definitionJsonArray.length(); i++) {
+                                            Definition definition = new Definition();
+                                            definition.setDefinition(definitionJsonArray.getJSONObject(i).getString("definition"));
+                                            definition.setType(definitionJsonArray.getJSONObject(i).getString("type"));
+                                            definition.setExample(definitionJsonArray.getJSONObject(i).getString("example"));
+                                            definition.setImageUrl(definitionJsonArray.getJSONObject(i).getString("image_url"));
+                                            definition.setEmoji(definitionJsonArray.getJSONObject(i).getString("emoji"));
+                                            definitions.add(definition);
+                                        }
+                                        word.setDefinitions(definitions);
+
+                                        getActivity().runOnUiThread(()->{
+                                            Toast.makeText(getContext(), "Search Complete", Toast.LENGTH_SHORT).show();
+                                            progressSearch.setVisibility(View.GONE);
+                                            recyclerSearch.setLayoutManager(new LinearLayoutManager(getContext()));
+                                            recyclerSearch.setAdapter(new DefinitionListAdapter(word.getDefinitions(), new OnDefinitionClickListener() {
+                                                @Override
+                                                public void OnClick(int position) {
+                                                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,
+                                                            OwlbotDictionaryViewDefinitionFragment.newInstance(word, word.getDefinitions().get(position)))
+                                                            .addToBackStack("DetailsFragment").commit();
+                                                }
+                                            }));
+
+                                            sharedPreferences.edit().putString("searchText",searchWord).apply();
+                                        });
+                                    }
+                                }catch(FileNotFoundException fileNotFound){
+                                    Toast.makeText(getContext(), "Definition not found", Toast.LENGTH_SHORT).show();
+                                }
+                                catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                            });
+                }
                 else
                     Snackbar.make(view, getResources().getString(R.string.owlbot_enter_text_error), BaseTransientBottomBar.LENGTH_SHORT).show();
             }
@@ -99,7 +163,6 @@ public class OwlbotDictionarySearchFragment extends Fragment {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            progressSearch.setVisibility(View.VISIBLE);
         }
 
         @Override
@@ -152,19 +215,7 @@ public class OwlbotDictionarySearchFragment extends Fragment {
         @Override
         protected void onPostExecute(Word word) {
             super.onPostExecute(word);
-            Toast.makeText(getContext(), "Search Complete", Toast.LENGTH_SHORT).show();
-            progressSearch.setVisibility(View.GONE);
-            recyclerSearch.setLayoutManager(new LinearLayoutManager(getContext()));
-            recyclerSearch.setAdapter(new DefinitionListAdapter(word.getDefinitions(), new OnDefinitionClickListener() {
-                @Override
-                public void OnClick(int position) {
-                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,
-                            OwlbotDictionaryViewDefinitionFragment.newInstance(word, word.getDefinitions().get(position)))
-                            .addToBackStack("DetailsFragment").commit();
-                }
-            }));
 
-            sharedPreferences.edit().putString("searchText",searchWord).apply();
         }
     }
 

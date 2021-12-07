@@ -9,12 +9,17 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.finalproject.R;
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.Locale;
 
 public class OwlbotDictionaryActivity extends AppCompatActivity {
 
@@ -77,7 +82,6 @@ public class OwlbotDictionaryActivity extends AppCompatActivity {
         switch (item.getItemId()) {
 
             case R.id.owlbotHelp:
-                //showing alert dialog for help
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle(getResources().getString(R.string.help));
                 builder.setPositiveButton(getResources().getString(R.string.owlbot_okay), new DialogInterface.OnClickListener() {
@@ -89,6 +93,26 @@ public class OwlbotDictionaryActivity extends AppCompatActivity {
                 builder.setMessage(getResources().getString(R.string.owlbot_help));
                 builder.show();
                 return true;
+            case R.id.owlbotLanguageChangeToEnglish: {
+                Locale newLocale = new Locale("en");
+                DisplayMetrics dm = getResources().getDisplayMetrics();
+                Configuration conf = getResources().getConfiguration();
+                conf.locale = newLocale;
+                getResources().updateConfiguration(conf, dm);
+                startActivity(new Intent(this, OwlbotDictionaryActivity.class));
+                finish();
+                return true;
+            }
+            case R.id.owlbotLanguageChangeToHindi: {
+                Locale newLocale = new Locale("hi");
+                DisplayMetrics dm = getResources().getDisplayMetrics();
+                Configuration conf = getResources().getConfiguration();
+                conf.locale = newLocale;
+                getResources().updateConfiguration(conf, dm);
+                startActivity(new Intent(this, OwlbotDictionaryActivity.class));
+                finish();
+                return true;
+            }
             default:
                 return super.onOptionsItemSelected(item);
         }

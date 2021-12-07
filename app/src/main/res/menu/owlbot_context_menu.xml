@@ -3,4 +3,10 @@
     <item
         android:id="@+id/owlbotHelp"
         android:title="@string/help"/>
+    <item
+        android:id="@+id/owlbotLanguageChangeToHindi"
+        android:title="@string/owlbot_change_language"/>
+    <item
+        android:id="@+id/owlbotLanguageChangeToEnglish"
+        android:title="@string/owlbot_change_language_to_English"/>
 </menu>

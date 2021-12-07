@@ -14,9 +14,6 @@
     <string name="owlbot_search">Search</string>
     <string name="owlbot_side_nav_search">Owlbot Dictionary Search</string>
     <string name="owlbot_side_nav_saved">Owlbot Dictionary Saved Definitions</string>
-    <string name="help">Help</string>
-    <string name="drawer_open">Open Drawer</string>
-    <string name="drawer_close">Close Drawer</string>
     <string name="owlbot_okay">Got It!</string>
     <string name="owlbot_help">1. Enter a word.\n2.Click Search Button\n3. You will see a list of definitions. Click on then for more details or to save them.</string>
     <string name="activity_owlbot_dictionary">Activity: Owlbot Dictionary</string>
@@ -31,7 +28,8 @@
     <string name="owlbot_enter_text_error">Please enter Search Text First</string>
     <string name="owlbot_no_saved_definition">No saved Definitions Found</string>
     <string name="owlbot_search_new_definitions">Search new Definitions</string>
-
+    <string name="owlbot_change_language">Chnage Language to Hindi</string>
+    <string name="owlbot_change_language_to_English">Change language to English</string>
 
     <string name="api_key_pexels">563492ad6f917000010000014fb852f35ab04474b564345ccba62a17</string>
     <string name="pexels_search">Pexels Search Image</string>

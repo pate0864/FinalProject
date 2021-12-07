@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">FinalProject</string>
     <string name="project_pexels">पेक्सल्स</string>
@@ -31,4 +32,25 @@
     <string name="pexels_view_photographer">फोटोग्राफर देखें</string>
     <string name="pexels_save">सहेजें</string>
     <string name="pexels_delete">हटाएं</string>
+    <string name="owlbot_search_hint">यहां शब्द दर्ज करें</string>
+    <string name="owlbot_search">खोज</string>
+    <string name="owlbot_side_nav_search">Owlbot शब्दकोश खोज</string>
+    <string name="owlbot_side_nav_saved">Owlbot शब्दकोश सहेजी गई परिभाषाएँ</string>
+    <string name="owlbot_okay">मिल गई!</string>
+    <string name="owlbot_help">1. एक शब्द दर्ज करें.\n2.खोज बटन क्लिक करें\n3. आप परिभाषाओं की एक सूची देखेंगे। अधिक विवरण के लिए या उन्हें सहेजने के लिए उस पर क्लिक करें।</string>
+    <string name="activity_owlbot_dictionary">गतिविधि: उल्लू शब्दकोश</string>
+    <string name="owlbot_dictionary_version">संस्करण 1</string>
+    <string name="author_owlbot_dictionary">लेखक: संकेत परमार</string>
+    <string name="owlbot_pronunciation">उच्चारण:</string>
+    <string name="owlbot_example">उदाहरण: </string>
+    <string name="owlbot_definition">परिभाषा: </string>
+    <string name="owlbot_save_definition">परिभाषा सहेजें</string>
+    <string name="owlbot_delete_definition">परिभाषा हटाएं</string>
+    <string name="owlbot_back">वापस</string>
+    <string name="owlbot_enter_text_error">कृपया खोज टेक्स्ट पहले दर्ज करें</string>
+    <string name="owlbot_no_saved_definition">कोई सहेजी गई परिभाषा नहीं मिली</string>
+    <string name="owlbot_search_new_definitions">नई परिभाषाएं खोजें</string>
+    <string name="owlbot_change_language">भाषा को हिंदी में बदलें</string>
+    <string name="owlbot_change_language_to_English">भाषा को अंग्रेजी में बदलें</string>
+
 </resources>
