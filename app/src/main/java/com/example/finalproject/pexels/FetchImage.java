@@ -25,7 +25,8 @@ public class FetchImage extends AsyncTask<Void, Void, Bitmap> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        progressBar.setVisibility(View.VISIBLE);
+        if(progressBar !=null)
+            progressBar.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -44,8 +45,11 @@ public class FetchImage extends AsyncTask<Void, Void, Bitmap> {
     protected void onPostExecute(Bitmap bitmap) {
         super.onPostExecute(bitmap);
         if (bitmap != null) {
-            progressBar.setVisibility(View.GONE);
-            imageView.setImageBitmap(bitmap);
+
+            if(progressBar !=null)
+                progressBar.setVisibility(View.GONE);
+            if(imageView!=null)
+                imageView.setImageBitmap(bitmap);
         }
     }
 }

@@ -41,6 +41,7 @@ public class PexelsImageRecyclerAdapter extends RecyclerView.Adapter<PexelsImage
         if("".equals(images.get(position).getSavePath()) || images.get(position).getSavePath() == null)
             new FetchImage(images.get(position).getMediumUrl(), holder.imageView, holder.progressImage).execute();
         else{
+            holder.progressImage.setVisibility(View.GONE);
             holder.imageView.setImageBitmap(ImageUtils.getImageFromGallery(images.get(position).getSavePath(), context));
         }
         holder.card.setOnClickListener(v->{

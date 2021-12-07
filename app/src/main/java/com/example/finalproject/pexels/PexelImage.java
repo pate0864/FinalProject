@@ -11,7 +11,6 @@ public class PexelImage implements Serializable {
     String url;
     String photographer;
     String photographerUrl;
-    String avgColor;
     String savePath;
 
     public int getId() {
@@ -76,14 +75,6 @@ public class PexelImage implements Serializable {
 
     public void setPhotographerUrl(String photographerUrl) {
         this.photographerUrl = photographerUrl;
-    }
-
-    public String getAvgColor() {
-        return avgColor;
-    }
-
-    public void setAvgColor(String avgColor) {
-        this.avgColor = avgColor;
     }
 
     public String getSavePath() {

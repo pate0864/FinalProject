@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.provider.MediaStore;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -18,5 +19,9 @@ public class ImageUtils {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static String saveImageToGallery(Bitmap bitmap, String id, Context context){
+        return MediaStore.Images.Media.insertImage(context.getContentResolver(), bitmap, id, "");
     }
 }

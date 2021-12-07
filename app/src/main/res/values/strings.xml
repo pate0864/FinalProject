@@ -25,4 +25,12 @@
     <string name="pexels_help_text">1. Enter Search keyword. 2. Click search to fetch Results. 3. You can save results by clicking and viewing detials.</string>
     <string name="pexels_search_hint">Enter Search Keyword</string>
     <string name="pexels_no_keword">Please enter search keyword</string>
+    <string name="pexels_image_details">Image Details</string>
+    <string name="pexels_photographer">Photographer</string>
+    <string name="pexels_width">Image Width</string>
+    <string name="pexels_height">Image Height</string>
+    <string name="pexels_view_original_image">View Original Image</string>
+    <string name="pexels_view_photographer">View Photographer</string>
+    <string name="pexels_save">Save</string>
+    <string name="pexels_delete">Delete</string>
 </resources>

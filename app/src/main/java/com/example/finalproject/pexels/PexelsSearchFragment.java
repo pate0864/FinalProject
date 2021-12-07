@@ -151,7 +151,6 @@ public class PexelsSearchFragment extends Fragment implements View.OnClickListen
                         image.setPhotographer(json.getString("photographer"));
                         image.setPhotographerUrl(json.getString("photographer_url"));
                         image.setUrl(json.getString("url"));
-                        image.setAvgColor(json.getString("avg_color"));
 
                         JSONObject imagesUrl = json.getJSONObject("src");
                         image.setOriginalUrl(imagesUrl.getString("original"));
