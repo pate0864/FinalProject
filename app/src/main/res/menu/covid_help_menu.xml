@@ -3,4 +3,7 @@
     <item
         android:id="@+id/covidHelp"
         android:title="@string/help"/>
+    <item
+        android:id="@+id/covidChangeLanguage"
+        android:title="@string/covid_change_language"/>
 </menu>

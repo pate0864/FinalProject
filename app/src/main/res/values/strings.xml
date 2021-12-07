@@ -14,8 +14,6 @@
     <string name="covid_side_nav_menu_saved_info">Covid 19 Saved Information</string>
     <string name="help">Help</string>
     <string name="covid_help_text">1. Select a date\n2.Hit Search\n3. You will see the data date wise, to see more information and to save click on it.</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="covid_loading">Loading Search Results...</string>
     <string name="covid_select_date">Select Date</string>
     <string name="covid_no_data">No Data Found!</string>
@@ -34,4 +32,5 @@
     <string name="covid_delete">Delete</string>
     <string name="covid_delete_successful">Information Deleted Successful</string>
     <string name="covid_save_successful">Information Saved Successful</string>
+    <string name="covid_change_language">Change Language</string>
 </resources>

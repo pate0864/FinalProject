@@ -9,12 +9,17 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.finalproject.R;
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.Locale;
 
 public class CovidInfoTrackerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -71,7 +76,7 @@ public class CovidInfoTrackerActivity extends AppCompatActivity implements Navig
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
 
-            case R.id.covidHelp:
+            case R.id.covidHelp: {
                 //showing alert dialog for help
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle(getResources().getString(R.string.help));
@@ -84,6 +89,39 @@ public class CovidInfoTrackerActivity extends AppCompatActivity implements Navig
                 builder.setMessage(getResources().getString(R.string.covid_help_text));
                 builder.show();
                 return true;
+            }
+            case R.id.covidChangeLanguage:{
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle(getResources().getString(R.string.covid_change_language));
+                builder.setPositiveButton("English", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Locale newLocale = new Locale("en");
+                        DisplayMetrics dm = getResources().getDisplayMetrics();
+                        Configuration conf = getResources().getConfiguration();
+                        conf.locale = newLocale;
+                        getResources().updateConfiguration(conf, dm);
+                        startActivity(new Intent(CovidInfoTrackerActivity.this, CovidInfoTrackerActivity.class));
+
+                        dialog.dismiss();
+                        finish();
+                    }
+                });
+                builder.setNegativeButton("Hindi", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Locale newLocale = new Locale("hi");
+                        DisplayMetrics dm = getResources().getDisplayMetrics();
+                        Configuration conf = getResources().getConfiguration();
+                        conf.locale = newLocale;
+                        getResources().updateConfiguration(conf, dm);
+                        startActivity(new Intent(CovidInfoTrackerActivity.this, CovidInfoTrackerActivity.class));
+                        dialog.dismiss();
+                        finish();
+                    }
+                });
+                builder.show();
+            }
             default:
                 return super.onOptionsItemSelected(item);
         }
