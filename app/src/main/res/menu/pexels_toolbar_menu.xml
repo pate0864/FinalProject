@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/pexelsHelp"
+        android:title="@string/help" />
+    <item
+        android:id="@+id/pexelsSwitchLanguage"
+        android:title="@string/pexels_switch_language" />
+</menu>
