@@ -27,6 +27,10 @@ public class CovidInfoTrackerActivity extends AppCompatActivity implements Navig
     Toolbar toolbar;
     NavigationView navigationView;
 
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +53,11 @@ public class CovidInfoTrackerActivity extends AppCompatActivity implements Navig
                 new CovidInfoSearchFragment()).commit();
     }
 
+    /**
+     * @param item
+     * @return
+     * Using Navigation bar
+     */
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
@@ -57,8 +66,8 @@ public class CovidInfoTrackerActivity extends AppCompatActivity implements Navig
                         new CovidInfoSearchFragment()).commit();
                 break;
             case R.id.covidSavedInfo:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,
-                                new CovidInfoSavedFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,
+                        new CovidInfoSavedFragment()).commit();
                 break;
 
         }
@@ -72,6 +81,12 @@ public class CovidInfoTrackerActivity extends AppCompatActivity implements Navig
         return true;
     }
 
+    /**
+     *
+     * @param item
+     * @return
+     * Tis functions is used for selecting the options which we have created in the menu layout file
+     */
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {

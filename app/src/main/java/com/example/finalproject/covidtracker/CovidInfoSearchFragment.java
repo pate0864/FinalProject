@@ -56,17 +56,34 @@ public class CovidInfoSearchFragment extends Fragment {
         // Required empty public constructor
     }
 
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
+    /**
+     *
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_covid_info_search, container, false);
     }
+
+    /**
+     *
+     * @param view
+     * @param savedInstanceState
+     */
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -82,13 +99,16 @@ public class CovidInfoSearchFragment extends Fragment {
         buttonSearch.setOnClickListener(v -> {
             if (!"".equals(editTextSearch.getText().toString())) {
                 Executors.newSingleThreadExecutor()
-                    .execute(new FetchCovidInfo(editTextSearch.getText().toString()));
+                        .execute(new FetchCovidInfo(editTextSearch.getText().toString()));
             } else
                 Toast.makeText(getContext(), "Please Select a Date", Toast.LENGTH_SHORT).show();
         });
         getSharedPreference();
     }
 
+    /**
+     * This function is used to choose the date from where the user want to search
+     */
     private void showDateSelector() {
         selectedDate = Calendar.getInstance();
         new DatePickerDialog(requireContext(), (view, year, monthOfYear, dayOfMonth) -> {
@@ -104,6 +124,9 @@ public class CovidInfoSearchFragment extends Fragment {
         layoutProgress = view.findViewById(R.id.layoutProgress);
     }
 
+    /**
+     *
+     */
     private void saveSharedPreference() {
         sharedPreferences = getActivity().getSharedPreferences("CovidInfoTracker", Context.MODE_PRIVATE);
         sharedPreferences.edit().putString("covidDate", editTextSearch.getText().toString()).apply();
@@ -145,6 +168,9 @@ public class CovidInfoSearchFragment extends Fragment {
                 layoutProgress.setVisibility(View.VISIBLE);
             });
 
+            /**
+             * Using JSON string data and uml to display the data from the server
+             */
             JSONArray data;
             List<CovidInfo> infoList = new ArrayList<>();
             try {

@@ -31,7 +31,9 @@ public class CovidInfoDetailFragment extends Fragment {
     Button buttonAction, buttonBack;
 
     public CovidInfoDetailFragment() {
-        // Required empty public constructor
+        /**
+         * Required empty public constructor
+         */
     }
     public static CovidInfoDetailFragment newInstance(CovidInfo covidInfo) {
         CovidInfoDetailFragment fragment = new CovidInfoDetailFragment();
@@ -49,10 +51,17 @@ public class CovidInfoDetailFragment extends Fragment {
         }
     }
 
+    /**
+     *
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     * This function will jump to the Fragment layout
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_covid_info_detail, container, false);
     }
 
