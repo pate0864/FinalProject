@@ -1,9 +1,11 @@
 package com.example.finalproject.covidtracker;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -92,17 +94,59 @@ public class CovidInfoDetailFragment extends Fragment {
 
         buttonAction.setOnClickListener(v->{
             if(saved){
-                database.deleteCovidInfo(info);
-                Toast.makeText(getContext(), (R.string.covid_delete_successful), Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder dialog = new AlertDialog.Builder(getContext());
+                dialog.setTitle("Delete Covid Information")
+                        .setMessage("Are you sure you want to delete?")
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        })
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                                database.deleteCovidInfo(info);
+                                Toast.makeText(getContext(), (R.string.covid_delete_successful), Toast.LENGTH_SHORT).show();
+                                saved = !saved;
+                                if(saved)
+                                    buttonAction.setText(getResources().getString(R.string.covid_delete));
+                                else
+                                    buttonAction.setText(getResources().getString(R.string.covid_save));
+                            }
+                        })
+                        .setCancelable(false);
+
+                dialog.create().show();
             }else{
-                database.addCovidInfo(info);
-                Toast.makeText(getContext(), (R.string.covid_save_successful), Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder dialog = new AlertDialog.Builder(getContext());
+                dialog.setTitle("Save Covid Information")
+                        .setMessage("Are you sure you want to save?")
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        })
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                                database.addCovidInfo(info);
+                                Toast.makeText(getContext(), (R.string.covid_save_successful), Toast.LENGTH_SHORT).show();
+                                saved = !saved;
+                                if(saved)
+                                    buttonAction.setText(getResources().getString(R.string.covid_delete));
+                                else
+                                    buttonAction.setText(getResources().getString(R.string.covid_save));
+                            }
+                        })
+                        .setCancelable(false);
+
+                dialog.create().show();
             }
-            saved = !saved;
-            if(saved)
-                buttonAction.setText(getResources().getString(R.string.covid_delete));
-            else
-                buttonAction.setText(getResources().getString(R.string.covid_save));
+
         });
 
         buttonBack.setOnClickListener(v->{

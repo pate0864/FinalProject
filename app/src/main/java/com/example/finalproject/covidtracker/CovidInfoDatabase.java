@@ -125,7 +125,7 @@ public class CovidInfoDatabase extends SQLiteOpenHelper {
         SQLiteDatabase database = this.getReadableDatabase();
         Cursor cursor = database.query(TABLE_NAME,
                 new String[]{COL_DATE},
-                null, null, null, null, null);
+                COL_DATE +" = ? ", new String[]{info.getDate()}, null, null, null);
 
         return cursor.getCount() > 0 ?true:false;
     }
