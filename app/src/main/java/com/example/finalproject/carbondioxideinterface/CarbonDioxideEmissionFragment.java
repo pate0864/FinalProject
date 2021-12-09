@@ -98,10 +98,29 @@ public class CarbonDioxideEmissionFragment extends Fragment {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                database.insertCarbonEmission(estimate);
-                btnSave.setVisibility(View.GONE);
-                btnDelete.setVisibility(View.VISIBLE);
-                Snackbar.make(view, getResources().getString(R.string.emission_saved_success), Snackbar.LENGTH_SHORT).show();
+                AlertDialog.Builder dialog = new AlertDialog.Builder(getContext());
+                dialog.setTitle("Save Estimate")
+                        .setMessage("Are you sure you want to save?")
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        })
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                                database.insertCarbonEmission(estimate);
+                                btnSave.setVisibility(View.GONE);
+                                btnDelete.setVisibility(View.VISIBLE);
+                                Snackbar.make(view, getResources().getString(R.string.emission_saved_success), Snackbar.LENGTH_SHORT).show();
+                            }
+                        })
+                        .setCancelable(false);
+
+                dialog.create().show();
+
             }
         });
 
