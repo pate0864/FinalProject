@@ -24,6 +24,12 @@ public class CovidInfoListAdapter extends RecyclerView.Adapter<CovidInfoListAdap
         this.context = context;
     }
 
+    /**
+     *
+     * @param parent
+     * @param viewType
+     * @return
+     */
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -46,6 +52,10 @@ public class CovidInfoListAdapter extends RecyclerView.Adapter<CovidInfoListAdap
         });
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public int getItemCount() {
         return list.size();

@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class CovidInfoDatabase extends SQLiteOpenHelper {
 
     private final String TABLE_NAME = "covidInformation";
@@ -30,6 +31,9 @@ public class CovidInfoDatabase extends SQLiteOpenHelper {
         super(context, "CovidInfo", null, 1);
     }
 
+    /**
+     * This function is used to create the Database
+     */
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL("create table "+TABLE_NAME+"(" +
@@ -47,12 +51,18 @@ public class CovidInfoDatabase extends SQLiteOpenHelper {
                 ")");
     }
 
+    /**
+     * This function drops the table if the table is already exists and creates the another one
+     */
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL( "DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(sqLiteDatabase);
     }
 
+    /**
+     * @param info
+     */
     public void addCovidInfo(CovidInfo info){
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_DATE, info.getDate());
@@ -67,6 +77,9 @@ public class CovidInfoDatabase extends SQLiteOpenHelper {
         contentValues.put(COL_TT_HOSPITALIZATION, info.getTotalHospitalization());
         contentValues.put(COL_TT_VACCINATION, info.getTotalVaccinations());
 
+        /**
+         * It inserts the data into the database
+         */
         SQLiteDatabase database = this.getWritableDatabase();
         database.insert(TABLE_NAME, null, contentValues);
     }

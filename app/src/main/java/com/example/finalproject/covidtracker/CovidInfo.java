@@ -20,6 +20,10 @@ public class CovidInfo implements Serializable {
     int totalRecoveries;
     int totalVaccinations;
 
+
+    /*
+    Using Constructor and it will return all the required details
+     */
     public String getDate() {
         return date;
     }
