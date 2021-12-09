@@ -1,9 +1,11 @@
 package com.example.finalproject.owlbotdictionary;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -98,20 +100,58 @@ public class OwlbotDictionaryViewDefinitionFragment extends Fragment {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                owlbotDicitonaryDatabase.insertDefinition(word, definition);
-                Toast.makeText(getContext(), "Definition Saved", Toast.LENGTH_SHORT).show();
-                btnDelete.setVisibility(View.VISIBLE);
-                btnSave.setVisibility(View.GONE);
+                AlertDialog.Builder dialog = new AlertDialog.Builder(getContext());
+                dialog.setTitle("Save Definition")
+                        .setMessage("Are you sure you want to save?")
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        })
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                                owlbotDicitonaryDatabase.insertDefinition(word, definition);
+                                Toast.makeText(getContext(), "Definition Saved", Toast.LENGTH_SHORT).show();
+                                btnDelete.setVisibility(View.VISIBLE);
+                                btnSave.setVisibility(View.GONE);
+                            }
+                        })
+                        .setCancelable(false);
+
+                dialog.create().show();
+
             }
         });
 
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                owlbotDicitonaryDatabase.deleteDefinition(word, definition);
-                Toast.makeText(getContext(), "Definition Delete", Toast.LENGTH_SHORT).show();
-                btnDelete.setVisibility(View.GONE);
-                btnSave.setVisibility(View.VISIBLE);
+                AlertDialog.Builder dialog = new AlertDialog.Builder(getContext());
+                dialog.setTitle("Delete Definition")
+                        .setMessage("Are you sure you want to delete?")
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        })
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                                owlbotDicitonaryDatabase.deleteDefinition(word, definition);
+                                Toast.makeText(getContext(), "Definition Delete", Toast.LENGTH_SHORT).show();
+                                btnDelete.setVisibility(View.GONE);
+                                btnSave.setVisibility(View.VISIBLE);
+                            }
+                        })
+                        .setCancelable(false);
+
+                dialog.create().show();
+
             }
         });
 
