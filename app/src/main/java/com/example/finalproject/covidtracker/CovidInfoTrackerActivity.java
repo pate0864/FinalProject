@@ -66,8 +66,8 @@ public class CovidInfoTrackerActivity extends AppCompatActivity implements Navig
                         new CovidInfoSearchFragment()).commit();
                 break;
             case R.id.covidSavedInfo:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,
-                                new CovidInfoSavedFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,
+                        new CovidInfoSavedFragment()).commit();
                 break;
 
         }

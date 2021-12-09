@@ -99,7 +99,7 @@ public class CovidInfoSearchFragment extends Fragment {
         buttonSearch.setOnClickListener(v -> {
             if (!"".equals(editTextSearch.getText().toString())) {
                 Executors.newSingleThreadExecutor()
-                    .execute(new FetchCovidInfo(editTextSearch.getText().toString()));
+                        .execute(new FetchCovidInfo(editTextSearch.getText().toString()));
             } else
                 Toast.makeText(getContext(), "Please Select a Date", Toast.LENGTH_SHORT).show();
         });
