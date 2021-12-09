@@ -1,9 +1,11 @@
 package com.example.finalproject.pexels;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -97,16 +99,54 @@ public class PexelsImageViewActivity extends AppCompatActivity implements View.O
             case R.id.buttonOperation:{
                 if(savedImage)
                 {
-                    database.deleteImage(pexelImage);
-                    Toast.makeText(this, "Image Deleted", Toast.LENGTH_SHORT).show();
-                    buttonOperation.setText(getString(R.string.pexels_save));
-                    savedImage = false;
+                    AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+                    dialog.setTitle("Delete Image")
+                            .setMessage("Are you sure you want to delete?")
+                            .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialogInterface.dismiss();
+                                }
+                            })
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialogInterface.dismiss();
+                                    database.deleteImage(pexelImage);
+                                    Toast.makeText(PexelsImageViewActivity.this, "Image Deleted", Toast.LENGTH_SHORT).show();
+                                    buttonOperation.setText(getString(R.string.pexels_save));
+                                    savedImage = false;
+                                }
+                            })
+                            .setCancelable(false);
+
+                    dialog.create().show();
+
                 }else{
-                    pexelImage.setSavePath(ImageUtils.saveImageToGallery(bitmap, String.valueOf(pexelImage.getId()),this));
-                    database.saveImage(pexelImage);
-                    Toast.makeText(this, "Image Saved", Toast.LENGTH_SHORT).show();
-                    buttonOperation.setText(getString(R.string.pexels_delete));
-                    savedImage = true;
+                    AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+                    dialog.setTitle("Save Image")
+                            .setMessage("Are you sure you want to save?")
+                            .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialogInterface.dismiss();
+                                }
+                            })
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialogInterface.dismiss();
+                                    pexelImage.setSavePath(ImageUtils.saveImageToGallery(bitmap, String.valueOf(pexelImage.getId()),PexelsImageViewActivity.this));
+                                    database.saveImage(pexelImage);
+                                    Toast.makeText(PexelsImageViewActivity.this, "Image Saved", Toast.LENGTH_SHORT).show();
+                                    buttonOperation.setText(getString(R.string.pexels_delete));
+                                    savedImage = true;
+                                }
+                            })
+                            .setCancelable(false);
+
+                    dialog.create().show();
+
                 }
             }break;
             case R.id.buttonOriginalImage:{
