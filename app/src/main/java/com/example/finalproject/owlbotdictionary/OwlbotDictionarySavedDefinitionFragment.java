@@ -21,14 +21,13 @@ import com.google.android.material.snackbar.Snackbar;
 import java.util.List;
 
 /**
- * A simple {@link Fragment} subclass.
+ * Fragment sub class
  */
 public class OwlbotDictionarySavedDefinitionFragment extends Fragment {
 
     RecyclerView recyclerSavedDefinitions;
 
     public OwlbotDictionarySavedDefinitionFragment() {
-        // Required empty public constructor
     }
 
     @Override
@@ -39,7 +38,6 @@ public class OwlbotDictionarySavedDefinitionFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_owlbot_dictionary_saved_definition, container, false);
     }
 
@@ -49,6 +47,9 @@ public class OwlbotDictionarySavedDefinitionFragment extends Fragment {
         recyclerSavedDefinitions = view.findViewById(R.id.recyclerSavedDefinition);
     }
 
+    /**
+     * using resume function to resume the application
+     */
     @Override
     public void onResume() {
         super.onResume();

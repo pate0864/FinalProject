@@ -41,9 +41,6 @@ import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class OwlbotDictionarySearchFragment extends Fragment {
 
     SharedPreferences sharedPreferences;
@@ -54,7 +51,6 @@ public class OwlbotDictionarySearchFragment extends Fragment {
     ProgressBar progressSearch;
 
     public OwlbotDictionarySearchFragment() {
-        // Required empty public constructor
     }
 
     @Override
@@ -65,7 +61,6 @@ public class OwlbotDictionarySearchFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_owlbot_dictionary_search, container, false);
     }
 

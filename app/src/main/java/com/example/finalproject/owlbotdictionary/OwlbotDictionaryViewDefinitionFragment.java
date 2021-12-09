@@ -19,8 +19,6 @@ import android.widget.Toast;
 import com.example.finalproject.R;
 
 /**
- * A simple {@link Fragment} subclass.
- * Use the {@link OwlbotDictionaryViewDefinitionFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class OwlbotDictionaryViewDefinitionFragment extends Fragment {

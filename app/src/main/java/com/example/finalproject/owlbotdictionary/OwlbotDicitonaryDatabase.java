@@ -10,6 +10,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Creating the database
+ */
 public class OwlbotDicitonaryDatabase extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "owlbotDictionary";
@@ -43,6 +46,9 @@ public class OwlbotDicitonaryDatabase extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
+    /**
+     * for inserting the data into the database
+     */
     public void insertDefinition(Word word, Definition definition) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_ID, word.getWord()+definition.getDefinition());
@@ -51,12 +57,14 @@ public class OwlbotDicitonaryDatabase extends SQLiteOpenHelper {
         contentValues.put(COL_DEFINITION, definition.getDefinition());
         contentValues.put(COL_EXAMPLE, definition.getExample());
         contentValues.put(COL_TYPE, definition.getType());
-
-        //getting database as Writable to insert the data
         SQLiteDatabase database = this.getWritableDatabase();
         database.insert(TABLE_NAME, null, contentValues);
     }
 
+    /**
+     *
+     * to delete the data from the database
+     */
     public int deleteDefinition(Word word, Definition definition){
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(TABLE_NAME,
