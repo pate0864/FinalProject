@@ -45,6 +45,9 @@ public class OwlbotDictionaryActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Navigation Bar
+     */
     private void setupNavigationDrawer(){
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar,
                 R.string.drawer_open, R.string.drawer_close);
@@ -120,7 +123,6 @@ public class OwlbotDictionaryActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        //close the drawer before exit
         if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
             mDrawerLayout.closeDrawer(GravityCompat.START);
         } else {
