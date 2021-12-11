@@ -18,8 +18,6 @@ import com.example.finalproject.R;
 import com.google.android.material.snackbar.Snackbar;
 
 /**
- * A simple {@link Fragment} subclass.
- * Use the {@link CarbonDioxideEmissionFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class CarbonDioxideEmissionFragment extends Fragment {
@@ -34,7 +32,6 @@ public class CarbonDioxideEmissionFragment extends Fragment {
     CarbonDioxideEmissionDatabase database;
 
     public CarbonDioxideEmissionFragment() {
-        // Required empty public constructor
     }
     // TODO: Rename and change types and number of parameters
     public static CarbonDioxideEmissionFragment newInstance(CarbonEmissionEstimate estimate) {
@@ -56,7 +53,6 @@ public class CarbonDioxideEmissionFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_carbon_dioxide_emission, container, false);
         tvCarbonInG = view.findViewById(R.id.tvCarbonG);
         tvCarbonInKg = view.findViewById(R.id.tvCarbonKg);

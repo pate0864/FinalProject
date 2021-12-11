@@ -35,7 +35,7 @@ import java.util.stream.Collectors;
 import javax.net.ssl.HttpsURLConnection;
 
 /**
- * A simple {@link Fragment} subclass.
+ * Fragment Class
  */
 public class CarbonDioxideSearchFragment extends Fragment {
 
@@ -50,7 +50,6 @@ public class CarbonDioxideSearchFragment extends Fragment {
     SharedPreferences sharedPreferences;
 
     public CarbonDioxideSearchFragment() {
-        // Required empty public constructor
     }
 
     @Override
@@ -61,7 +60,6 @@ public class CarbonDioxideSearchFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_carbon_dioxide_search, container, false);
         btnSearchMaker = view.findViewById(R.id.btnSearchCarbonDioxide);
         btnResetSearch = view.findViewById(R.id.btnResetSearch);
@@ -177,7 +175,6 @@ public class CarbonDioxideSearchFragment extends Fragment {
             try {
                 URL endPoint = new URL(getResources().getString(R.string.apiMakersUrl) + "/" + vehicleMakerId + "/vehicle_models");
 
-                // Create connection
                 HttpsURLConnection connection =
                         (HttpsURLConnection) endPoint.openConnection();
 

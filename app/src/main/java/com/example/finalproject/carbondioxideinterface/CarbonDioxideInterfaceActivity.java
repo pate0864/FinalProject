@@ -29,8 +29,6 @@ public class CarbonDioxideInterfaceActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_carbon_dioxide_interface);
-
-        //toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.project_carbon_dioxide);
         setSupportActionBar(toolbar);
@@ -38,8 +36,6 @@ public class CarbonDioxideInterfaceActivity extends AppCompatActivity {
         mDrawerLayout = findViewById(R.id.drawerLayoutCarbonDioxide);
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar,
                 R.string.drawer_open, R.string.drawer_close);
-        mDrawerLayout.addDrawerListener(actionBarDrawerToggle);
-        //animating the actionbar icon
         actionBarDrawerToggle.syncState();
         NavigationView navigationView = findViewById(R.id.navigationView);
 
@@ -47,7 +43,6 @@ public class CarbonDioxideInterfaceActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,
                 new CarbonDioxideSearchFragment()).commit();
 
-        //drawer item clicks
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -79,7 +74,6 @@ public class CarbonDioxideInterfaceActivity extends AppCompatActivity {
         switch (item.getItemId()) {
 
             case R.id.menuHelp: {
-                //showing alert dialog for help
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle(getResources().getString(R.string.help));
                 builder.setPositiveButton(getResources().getString(R.string.carbon_dioxide_okay), new DialogInterface.OnClickListener() {
@@ -114,7 +108,6 @@ public class CarbonDioxideInterfaceActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        //close the drawer before exit
         if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
             mDrawerLayout.closeDrawer(GravityCompat.START);
         } else {

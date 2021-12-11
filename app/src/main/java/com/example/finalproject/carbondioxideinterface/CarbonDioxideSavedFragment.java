@@ -18,16 +18,12 @@ import com.example.finalproject.R;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class CarbonDioxideSavedFragment extends Fragment {
 
     RecyclerView rvSavedEmission;
     TextView tvNotFound;
 
     public CarbonDioxideSavedFragment() {
-        // Required empty public constructor
     }
 
     @Override
@@ -38,7 +34,6 @@ public class CarbonDioxideSavedFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_carbon_dioxide_saved, container, false);
         rvSavedEmission = view.findViewById(R.id.rvSavedEmission);
         tvNotFound = view.findViewById(R.id.tvNotFound);
