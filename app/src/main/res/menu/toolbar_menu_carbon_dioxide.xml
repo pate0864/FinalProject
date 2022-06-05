@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:id="@+id/menuHelp"
-        android:title="@string/help"/>
-    <item
-        android:id="@+id/changeLanguage"
-        android:title="@string/carbon_dioxide_change_language"/>
-</menu>

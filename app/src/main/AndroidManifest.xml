@@ -9,19 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FinalProject">
-        <activity
-            android:name=".owlbotdictionary.OwlbotDictionaryActivity"
-            android:exported="false" />
-        android:theme="@style/Theme.FinalProject" >
-        <activity
-            android:name=".pexels.PexelsImageViewActivity"
-            android:exported="false" />
-        <activity
-            android:name=".pexels.PexelsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".carbondioxideinterface.CarbonDioxideInterfaceActivity"
-            android:exported="false" />
+       
         <activity
             android:name=".covidtracker.CovidInfoTrackerActivity"
             android:exported="false" />

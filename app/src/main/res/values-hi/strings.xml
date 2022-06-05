@@ -2,58 +2,14 @@
 <resources>
 
     <string name="app_name">FinalProject</string>
-    <string name="project_pexels">पेक्सल्स</string>
-    <string name="desc_pexels">API का उपयोग करके Pexels से छवियां खोजें</string>
-    <string name="project_owlbot_dictionary">Owlbot शब्दकोश</string>
-    <string name="desc_owlbot_dictionary">शब्दकोश से शब्द के अर्थ खोजें</string>
+    
     <string name="project_covid19_tracker">Covid19 सूचना ट्रैकर</string>
     <string name="desc_covid19_tracker">Covid19 मामलों की जानकारी प्राप्त करें</string>
-    <string name="project_carbon_dioxide">कार्बन डाइऑक्साइड इंटरफ़ेस</string>
-    <string name="desc_carbon_dioxide">कार्बन डाइऑक्साइड उत्सर्जन विवरण प्राप्त करें</string>
-
-
-    <string name="api_key_pexels">563492ad6f917000010000014fb852f35ab04474b564345ccba62a17</string>
-    <string name="pexels_search">पिक्सल सर्च इमेज</string>
-    <string name="pexels_saved">Pexels सहेजी गई छवि</string>
-    <string name="author_pexels">कर्म पटेल</string>
-    <string name="pexels_version">संस्करण 1</string>
+  
     <string name="drawer_open">दराज खोलें</string>
     <string name="drawer_close">दराज बंद करें</string>
     <string name="help">मदद</string>
-    <string name="pexels_switch_language">भाषा बदलें</string>
-    <string name="pexels_ok">ठीक</string>
-    <string name="pexels_help_text">1. खोज कीवर्ड दर्ज करें। 2. परिणाम लाने के लिए खोज पर क्लिक करें। 3. आप डिटेल्स पर क्लिक करके और देख कर रिजल्ट सेव कर सकते हैं।</string>
-    <string name="pexels_search_hint">खोज कीवर्ड दर्ज करें</string>
-    <string name="pexels_no_keword">कृपया खोज कीवर्ड दर्ज करें</string>
-    <string name="pexels_image_details">छवि विवरण</string>
-    <string name="pexels_photographer">फोटोग्राफर</string>
-    <string name="pexels_width">इमेज की चौड़ाई</string>
-    <string name="pexels_height">चित्र की ऊंचाई</string>
-    <string name="pexels_view_original_image">मूल छवि देखें</string>
-    <string name="pexels_view_photographer">फोटोग्राफर देखें</string>
-    <string name="pexels_save">सहेजें</string>
-    <string name="pexels_delete">हटाएं</string>
-    <string name="owlbot_search_hint">यहां शब्द दर्ज करें</string>
-    <string name="owlbot_search">खोज</string>
-    <string name="owlbot_side_nav_search">Owlbot शब्दकोश खोज</string>
-    <string name="owlbot_side_nav_saved">Owlbot शब्दकोश सहेजी गई परिभाषाएँ</string>
-    <string name="owlbot_okay">मिल गई!</string>
-    <string name="owlbot_help">1. एक शब्द दर्ज करें.\n2.खोज बटन क्लिक करें\n3. आप परिभाषाओं की एक सूची देखेंगे। अधिक विवरण के लिए या उन्हें सहेजने के लिए उस पर क्लिक करें।</string>
-    <string name="activity_owlbot_dictionary">गतिविधि: उल्लू शब्दकोश</string>
-    <string name="owlbot_dictionary_version">संस्करण 1</string>
-    <string name="author_owlbot_dictionary">लेखक: संकेत परमार</string>
-    <string name="owlbot_pronunciation">उच्चारण:</string>
-    <string name="owlbot_example">उदाहरण: </string>
-    <string name="owlbot_definition">परिभाषा: </string>
-    <string name="owlbot_save_definition">परिभाषा सहेजें</string>
-    <string name="owlbot_delete_definition">परिभाषा हटाएं</string>
-    <string name="owlbot_back">वापस</string>
-    <string name="owlbot_enter_text_error">कृपया खोज टेक्स्ट पहले दर्ज करें</string>
-    <string name="owlbot_no_saved_definition">कोई सहेजी गई परिभाषा नहीं मिली</string>
-    <string name="owlbot_search_new_definitions">नई परिभाषाएं खोजें</string>
-    <string name="owlbot_change_language">भाषा को हिंदी में बदलें</string>
-    <string name="owlbot_change_language_to_English">भाषा को अंग्रेजी में बदलें</string>
-
+   
     <string name="covid_side_nav_menu_search_info">कोविड 19 सूचना खोज</string>
     <string name="covid_side_nav_menu_saved_info">कोविड 19 सहेजी गई जानकारी</string>
     <string name="covid_help_text">1. एक तारीख चुनें\n2.खोज दबाएं\n3. अधिक जानकारी देखने के लिए और उस पर क्लिक करने के लिए आपको तारीख के अनुसार डेटा दिखाई देगा।</string>
@@ -74,38 +30,4 @@
     <string name="covid_delete_successful">जानकारी हटाई गई सफल</string>
     <string name="covid_save_successful">जानकारी सहेजी गई सफल</string>
     <string name="covid_change_language">भाषा बदलें</string>
-
-    <!--    Carbon Dioxide Interface Project Strings-->
-    <string name="author_carbon_dioxide">कवन पटेल</string>
-    <string name="version_carbon_dioxide">संस्करण 1</string>
-    <string name="carbon_dioxide_search">कार्बन डाइऑक्साइड अनुमान</string>
-    <string name="carbon_dioxide_saved">कार्बन डाइऑक्साइड सहेजे गए उत्सर्जन</string>
-
-    <string name="carbon_dioxide_help">1. वाहन की दूरी दर्ज करें और खोज निर्माता पर क्लिक करें\n
-    2. प्रदान की गई सूची से निर्माता पर क्लिक करें\n
-    3. प्रदान की गई मॉडल सूची से मॉडल पर क्लिक करें\n
-    4. आपको अपनी स्क्रीन पर कार्बन डाइऑक्साइड उत्सर्जन अनुमान प्राप्त होगा</string>
-    <string name="carbon_dioxide_okay">ठीक!</string>
-    <string name="carbon_dioxide_search_hint">दूरी दर्ज करें (किमी में)</string>
-    <string name="carbon_dioxide_btn_search">खोज निर्माता</string>
-    <string name="carbon_dioxide_text_select_maker">निर्माता का चयन करें:</string>
-    <string name="carbon_dioxide_text_select_model">मॉडल चुनें:</string>
-    <string name="carbon_dioxide_btn_calculate">उत्सर्जन की गणना करें</string>
-    <string name="carbon_dioxide_btn_reset_search">खोज रीसेट करें</string>
-    <string name="carbon_dioxide_btn_save">सहेजें</string>
-    <string name="emission_saved_success">कार्बन उत्सर्जन सफलतापूर्वक सहेजा गया</string>
-    <string name="carbon_dioxide_btn_delete">हटाएं</string>
-    <string name="carbon_dioxide_btn_back">वापस</string>
-    <string name="emission_delete_success">कार्बन उत्सर्जन सफलतापूर्वक हटाया गया</string>
-    <string name="carbon_dioxide_no_save_found">कोई सहेजा गया कार्बन उत्सर्जन अनुमान नहीं मिला</string>
-
-    <string name="apiKeyCarbonEmission">7wxKx0AAeNYLIkhPWXlAg</string>
-    <string name="apiMakersUrl">https://www.carboninterface.com/api/v1/vehicle_makes</string>
-    <string name="apiEstimatesUrl">https://www.carboninterface.com/api/v1/estimates</string>
-
-    <string name="vehicle_model">वाहन मॉडल:</string>
-    <string name="vehicle_maker">वाहन निर्माता:</string>
-    <string name="distance">दूरी:</string>
-    <string name="carbon_dioxide_change_language">भाषा बदलें</string>
-
 </resources>
